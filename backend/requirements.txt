@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+langchain
+langchain-community
+langchain-google-vertexai
+youtube-transcript-api
+pytube
+tiktoken
+tqdm
