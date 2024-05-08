@@ -28,7 +28,7 @@ def analyze_video(request: VideoAnalysisRequest):
         gemini_processor=GeminiProcessor(**VertexAIConfig.LLM_CONFIG.value)
         youtube_processor=YoutubeProcessor(gemini_processor=gemini_processor)
         results=youtube_processor.retrieve_youtube_documents(str(request.youtube_link),verbose=True)
-        key_concepts=youtube_processor.find_key_concepts(documents=results,group_size=2)
+        key_concepts=youtube_processor.find_key_concepts(documents=results,sample_size=0,verbose=True)
         #if results and len(results)>0:
         #    summary=gemini_processor.generate_document_summary(results,verbose=True)
 
@@ -36,5 +36,4 @@ def analyze_video(request: VideoAnalysisRequest):
         print(e)
         return {"status":"error","message":str(e)}
     #return results[0].metadata if len(results)>0 else ""
-    print({"key_concepts":key_concepts})
     return {"key_concepts":key_concepts}

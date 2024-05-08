@@ -2,3 +2,5 @@
 __pycache__/
 ./backend/__pycache__/
 *-service-*.json
+frontend/dynamocards/package.json
+frontend/dynamocards/package-lock.json
